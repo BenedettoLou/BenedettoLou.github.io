@@ -1,2 +1,0 @@
-# BenedettoLou.github.io
-Appunti
