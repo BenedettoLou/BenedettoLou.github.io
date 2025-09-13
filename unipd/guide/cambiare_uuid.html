@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it">
 <head>
-<!-- 2025-09-12 ven 10:12 -->
+<!-- 2025-09-13 sab 15:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Come cambiare l'UUID dopo aver modificato le partizioni di un sistema Linux</title>
-<meta name="author" content="Frattina Mattia | Ingegneria delle Telecomunicazioni, Internet e Multimedia" />
+<meta name="author" content="BenedettoLou | Ingegneria delle Telecomunicazioni, Internet e Multimedia" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -202,20 +202,20 @@
 <h2>Indice</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge45eec7">1. Problema</a></li>
-<li><a href="#org2268083">2. Soluzione</a>
+<li><a href="#org3d88b8e">1. Problema</a></li>
+<li><a href="#org43cb080">2. Soluzione</a>
 <ul>
-<li><a href="#orga1c6fa2">2.1. Entrare in modalità recovery (<i>recovery mode</i>)</a></li>
-<li><a href="#org79ce7aa">2.2. Visualizzare gli UUID delle nuove partizioni</a></li>
-<li><a href="#org0fb8664">2.3. Modifica file di configurazione</a></li>
-<li><a href="#org1aef257">2.4. Boot</a></li>
+<li><a href="#org7804572">2.1. Entrare in modalità recovery (<i>recovery mode</i>)</a></li>
+<li><a href="#org64dcd06">2.2. Visualizzare gli UUID delle nuove partizioni</a></li>
+<li><a href="#org1595842">2.3. Modifica file di configurazione</a></li>
+<li><a href="#orgdc10ae0">2.4. Boot</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge45eec7" class="outline-2">
-<h2 id="orge45eec7"><span class="section-number-2">1.</span> Problema</h2>
+<div id="outline-container-org3d88b8e" class="outline-2">
+<h2 id="org3d88b8e"><span class="section-number-2">1.</span> Problema</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 E' necessario dopo aver modificato la "<b>posizione</b>" (<i>allocazione di memoria</i>) di una o più partizioni nel proprio <b>filesystem</b> dover modificare le proprie impostazioni di <b>configurazione</b>, per rendere più efficace e veloce il nostro sistema linux all'avvio.
@@ -223,23 +223,23 @@ E' necessario dopo aver modificato la "<b>posizione</b>" (<i>allocazione di memo
 </p>
 </div>
 </div>
-<div id="outline-container-org2268083" class="outline-2">
-<h2 id="org2268083"><span class="section-number-2">2.</span> Soluzione</h2>
+<div id="outline-container-org43cb080" class="outline-2">
+<h2 id="org43cb080"><span class="section-number-2">2.</span> Soluzione</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 La soluzione è piuttosto semplice. Seguire i seguenti passi
 </p>
 </div>
-<div id="outline-container-orga1c6fa2" class="outline-3">
-<h3 id="orga1c6fa2"><span class="section-number-3">2.1.</span> Entrare in modalità recovery (<i>recovery mode</i>)</h3>
+<div id="outline-container-org7804572" class="outline-3">
+<h3 id="org7804572"><span class="section-number-3">2.1.</span> Entrare in modalità recovery (<i>recovery mode</i>)</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 All'avvio, nel momento in cui il sistema deve ancora entrare in fase di <b>boot</b> selezioniamo l'opzione "Advanced" per linux. Così facendo si aprirà un menù. Selezionare una delle opzioni contenenti <i>recovery</i> o <i>GRUB</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org79ce7aa" class="outline-3">
-<h3 id="org79ce7aa"><span class="section-number-3">2.2.</span> Visualizzare gli UUID delle nuove partizioni</h3>
+<div id="outline-container-org64dcd06" class="outline-3">
+<h3 id="org64dcd06"><span class="section-number-3">2.2.</span> Visualizzare gli UUID delle nuove partizioni</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Per visualizzare i nuovi UUID da inserire poi nella configurazione, eseguire il comando <code>blkid</code> o in alternativa (per una visualizzazione più <b>chiara</b>) <code>lsblk -f</code>
@@ -254,8 +254,8 @@ Una volta visualizzati gli UUID, copiarli.
 </p>
 </div>
 </div>
-<div id="outline-container-org0fb8664" class="outline-3">
-<h3 id="org0fb8664"><span class="section-number-3">2.3.</span> Modifica file di configurazione</h3>
+<div id="outline-container-org1595842" class="outline-3">
+<h3 id="org1595842"><span class="section-number-3">2.3.</span> Modifica file di configurazione</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Entrare nella cartella <code>/etc/</code> e modificare il file <code>fstab</code>. In questo file sono espresse le partizioni che devono essere utilizzate, con i rispettivi ruoli.
@@ -273,8 +273,8 @@ Salvare poi con <code>C-O</code> e chiudere l'editor con <code>C-X</code> (nel c
 </p>
 </div>
 </div>
-<div id="outline-container-org1aef257" class="outline-3">
-<h3 id="org1aef257"><span class="section-number-3">2.4.</span> Boot</h3>
+<div id="outline-container-orgdc10ae0" class="outline-3">
+<h3 id="orgdc10ae0"><span class="section-number-3">2.4.</span> Boot</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Una volta configurato correttamente basterà premere <code>C-D</code> e continuare con il boot del dispositivo. Le volte successive sarà sufficiente avviare il proprio sistema normalmente.
@@ -284,8 +284,8 @@ Una volta configurato correttamente basterà premere <code>C-D</code> e continua
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Autore: Frattina Mattia | Ingegneria delle Telecomunicazioni, Internet e Multimedia</p>
-<p class="date">Created: 2025-09-12 ven 10:12</p>
+<p class="author">Autore: BenedettoLou | Ingegneria delle Telecomunicazioni, Internet e Multimedia</p>
+<p class="date">Created: 2025-09-13 sab 15:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
