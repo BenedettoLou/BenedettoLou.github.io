@@ -1,5 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@page {
+    margin: 2.54cm;
+    size: A4;
+    /* Page numbers, does not really work on most browsers. */
+    @bottom-right {
+        padding-right: 20px;
+        content: "Page " counter(page);
+    }
+}
+
+@media print {
+    
+    
+    #table-of-contents {
+        /* Page break after table of contents */
+        page-break-after: always;
+        margin-top: 2em;
+        line-height: 1.5em;
+        
+        margin: auto auto;
+    }
+
+    #table-of-contents > h2 {
+	text-align: center;
+	margin-top: 4em;
+    }
+
+    h2, h3, h4, h5 {
+        page-break-after: avoid;
+    }
+    
+    .figure {
+        /* Figure stays together with caption */
+        page-break-inside: avoid;
+    }
+    
+}
+
 
 :root{
     background-color: #0F5132;
